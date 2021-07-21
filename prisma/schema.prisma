@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["orderByAggregateGroup", "referentialActions"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model assets {
+  id          Int    @id @default(autoincrement())
+  weapon      String @db.VarChar(255)
+  price       Int
+  weaponImage String @db.VarChar(255)
+  quantity    Int
+}
+
+model RoyalFamily {
+  id          Int     @id @default(autoincrement())
+  firstname   String  @db.VarChar(255)
+  lastname    String  @db.VarChar(255)
+  description String  @db.Text
+  avatar      String? @db.VarChar(255)
+
+}
+
+model contact {
+  id        Int    @id @default(autoincrement())
+  firstname String @db.VarChar(255)
+  lastname  String @db.VarChar(255)
+  review    String @db.Text
+
+}
