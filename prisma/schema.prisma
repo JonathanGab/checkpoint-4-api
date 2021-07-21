@@ -32,6 +32,7 @@ model contact {
   id        Int    @id @default(autoincrement())
   firstname String @db.VarChar(255)
   lastname  String @db.VarChar(255)
+  email     String @db.VarChar(255)
   review    String @db.Text
 
 }

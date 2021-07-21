@@ -27,7 +27,7 @@ const DB_PASSWORD = DATABASE_URL.match(dbUrlregex)[2].split(':')[1];
 const DB_HOST = DATABASE_URL.match(dbUrlregex)[3].split(':')[0];
 const DB_PORT = DATABASE_URL.match(dbUrlregex)[3].split(':')[1];
 const DB_NAME = DATABASE_URL.match(dbUrlregex)[4].split('/')[0];
-
+const EMAIL_SENDER = getEnv(`EMAIL_SENDER`);
 module.exports = {
   getEnv,
   inTestEnv,
@@ -43,4 +43,5 @@ module.exports = {
   DB_PORT,
   DB_USER,
   CORS_ALLOWED_ORIGINS,
+  EMAIL_SENDER,
 };
