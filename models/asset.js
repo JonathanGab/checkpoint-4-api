@@ -11,9 +11,7 @@ const createAsset = async ({ weapon, price, weaponImage, quantity }) => {
   });
 };
 
-const findAllAssets = async () => {
-  return db.assets.findMany();
-};
+const { findMany } = db.assets;
 
 const destroy = (id) =>
   db.assets
@@ -39,7 +37,7 @@ const findOne = (id) =>
 module.exports = {
   findOne,
   createAsset,
-  findAllAssets,
+  findMany,
   destroy,
   updateAssets,
 };

@@ -1,5 +1,6 @@
 const AssetsRouter = require('express').Router();
 const Assets = require('../models/asset');
+const { RecordNotFoundError } = require('../error-types');
 
 AssetsRouter.post('/', async (req, res) => {
   const { weapon, price, weaponImage, quantity } = req.body;
@@ -52,10 +53,11 @@ AssetsRouter.delete('/:id', async (req, res) => {
     });
 });
 
-/* AssetsRouter.patch('/:id', async (req, res) => {
-  await Assets.findOne(parseInt(req.params.id, 10));
-  const updated = await Assets.updateAssets(req.params.id);
-  res.send(updated);
-}); */
+AssetsRouter.patch('/:id', async (req, res) => {
+  const existingAssets = await Assets.findOne(req.params.id);
+  if (!existingAssets) throw new RecordNotFoundError();
+  await Assets.updateAssets(req.params.id, req.body);
+  return res.json({ ...existingAssets, ...req.body });
+});
 
 module.exports = AssetsRouter;
