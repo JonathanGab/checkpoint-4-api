@@ -21,6 +21,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 require('./routes')(app);
 
+app.use('/file-storage', express.static('file-storage'));
 // server setup
 const server = app.listen(PORT, () => {
   if (!inTestEnv) {

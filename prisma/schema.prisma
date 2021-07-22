@@ -19,7 +19,7 @@ model assets {
   quantity    Int
 }
 
-model RoyalFamily {
+model royalFamily {
   id          Int     @id @default(autoincrement())
   firstname   String  @db.VarChar(255)
   lastname    String  @db.VarChar(255)
