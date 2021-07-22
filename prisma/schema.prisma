@@ -12,10 +12,10 @@ datasource db {
 }
 
 model assets {
-  id          Int    @id @default(autoincrement())
-  weapon      String @db.VarChar(255)
+  id          Int     @id @default(autoincrement())
+  weapon      String  @db.VarChar(255)
   price       Int
-  weaponImage String @db.VarChar(255)
+  weaponImage String? @db.VarChar(255)
   quantity    Int
 }
 
