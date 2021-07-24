@@ -33,7 +33,7 @@ AssetsRouter.get('/:id', async (req, res) => {
 
 AssetsRouter.get('/', async (req, res) => {
   try {
-    const allAssets = await Assets.findAllAssets();
+    const allAssets = await Assets.findMany();
 
     return res.json(allAssets);
   } catch (err) {

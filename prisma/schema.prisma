@@ -19,6 +19,11 @@ model assets {
   quantity    Int
 }
 
+model picture {
+  id      Int    @id @default(autoincrement())
+  picture String @db.VarChar(255)
+}
+
 model royalFamily {
   id          Int     @id @default(autoincrement())
   firstname   String  @db.VarChar(255)
@@ -31,8 +36,6 @@ model royalFamily {
 model contact {
   id        Int    @id @default(autoincrement())
   firstname String @db.VarChar(255)
-  lastname  String @db.VarChar(255)
   email     String @db.VarChar(255)
   review    String @db.Text
-
 }

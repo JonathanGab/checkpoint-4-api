@@ -8,11 +8,10 @@ ReviewsRouter.post(
   '/',
   asyncHandler(async (req, res) => {
     console.log(req.body);
-    const { lastname, firstname, email, review } = req.body;
+    const { firstname, email, review } = req.body;
     try {
       const newReview = await Review.createReview({
         firstname,
-        lastname,
         email,
         review,
       });

@@ -1,10 +1,9 @@
 const db = require('../db');
 
-const createReview = async ({ firstname, lastname, email, review }) => {
+const createReview = async ({ firstname, email, review }) => {
   return db.contact.create({
     data: {
       firstname,
-      lastname,
       email,
       review,
     },
